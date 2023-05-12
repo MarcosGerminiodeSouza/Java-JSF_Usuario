@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Alterar Usuário</title>
+        <link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h2>Alterar Usuário</h2><hr/>
+            
+            <h:panelGrid columns="2" columnClasses="direita, esquerda">
+                
+                <h:outputLabel>Código:</h:outputLabel>
+                <h:inputText value="#{alterarUsuario.codigo}" readonly="true"
+                             class="alterarCodigo"/>
+                
+                <h:outputLabel>Nome Usuário:</h:outputLabel>
+                <h:inputText value="#{alterarUsuario.nome}"
+                             class="nome"/>
+                
+                <h:commandButton class="botao_indigo" value="Salvar"
+                                 action="#{usuario.obj_CRUD.atualizar(alterarUsuario)}"/>
+                <h:link outcome="index" value="Lista de Usuários" class="botao_indigo"/>
+                
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

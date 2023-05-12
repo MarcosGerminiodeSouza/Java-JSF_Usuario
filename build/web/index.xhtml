@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Usuário</title>
+        <link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            <h2><h:outputText value="Usuários"/></h2>
+            
+            <h:dataTable binding="#{table}" value="#{usuario.obj_CRUD.ListarUsuarios()}"
+                         var="u">                
+                <h:column>
+                    <f:facet name="header">Codigo</f:facet>
+                    <h:outputText value="#{u.codigo}"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Nome Usuário</f:facet>
+                    <h:outputText value="#{u.nome}"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Alterar</f:facet>
+                    <h:commandButton action="#{usuario.obj_CRUD.alterar(u.codigo)}"
+                                  value="Alterar" class="botao_azul"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Excluir</f:facet>
+                    <h:commandButton action="#{usuario.obj_CRUD.excluir(u.codigo)}"
+                                  value="Excluir" class="botao_vermelho"/>
+                </h:column>
+                
+            </h:dataTable>
+            <hr/>            
+            <center>
+                <h:commandButton action="inserirUsuario" class="botao_indigo"
+                                     value="Inserir Novo Usuário"/>
+            </center>
+            
+        </h:form>
+    </h:body>
+</html>
